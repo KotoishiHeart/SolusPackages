@@ -1,0 +1,97 @@
+name       : mesalib
+version    : 20.3.0
+release    : 150
+source     :
+    - https://mesa.freedesktop.org/archive/mesa-20.3.0.tar.xz : 2999738e888731531cd62b27519fa37566cc0ea2cd7d4d97f46abaa3e949c630
+homepage   : http://mesa3d.org/
+license    :
+    - BSL-1.0
+    - MIT
+    - SGI-B-1.0
+component  : xorg.display
+summary    : Mesa is an OpenGL compatible 3D graphics library.
+description: |
+    Mesa is an OpenGL compatible 3D graphics library.
+optimize   :
+    - no-symbolic
+emul32     : no
+libsplit   : no
+patterns   :
+    - devel :
+        - /usr/lib64/lib*GL.so
+        - /usr/lib64/libGL*.so
+        - /usr/lib64/libOS*.so
+        - /usr/lib64/libg*.so
+        - /usr/lib64/libwayland*.so
+        - /usr/lib64/libxa*.so
+    - 32bit-devel :
+        - /usr/lib32/lib*GL.so
+        - /usr/lib32/libGL*.so
+        - /usr/lib32/libOS*.so
+        - /usr/lib32/libg*.so
+        - /usr/lib32/libwayland*.so
+        - /usr/lib32/libxa*.so
+builddeps  :
+    - pkgconfig32(expat)
+    - pkgconfig(xproto)
+    - pkgconfig32(libdrm)
+    - pkgconfig32(libelf)
+    - pkgconfig32(libglvnd)
+    - pkgconfig32(libunwind)
+    - pkgconfig32(libva)
+    - pkgconfig32(libzstd)
+    - pkgconfig32(nettle)
+    - pkgconfig32(vdpau)
+    - pkgconfig32(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig32(x11)
+    - pkgconfig32(xcb-dri3)
+    - pkgconfig32(xdamage)
+    - pkgconfig32(xext)
+    - pkgconfig32(xfixes)
+    - pkgconfig32(xrandr)
+    - pkgconfig32(xshmfence)
+    - pkgconfig32(xxf86vm)
+    - pkgconfig32(zlib)
+    - git
+    - llvm-32bit-devel
+    - llvm-clang-32bit-devel
+    - llvm-devel
+    - mako
+rundeps    :
+    - libglvnd
+    - linux-driver-management
+    - 32bit :
+        - libglvnd-32bit
+    - 32bit-devel :
+        - libglvnd-32bit-devel
+    - devel :
+        - libglvnd-devel
+environment: |
+    export PYTHON=/usr/bin/python3
+setup      : |
+    if [[ ! -z $EMUL32BUILD ]]; then
+          export EXTRA_ARGS="--cross-file $pkgfiles/llvm32.native --libdir=/usr/lib32"
+    else
+          export EXTRA_ARGS=""
+    fi
+    %meson_configure $EXTRA_ARGS \
+        -Dplatforms=x11,wayland \
+        -Dgallium-drivers=iris,nouveau,r300,r600,radeonsi,svga,swrast,virgl \
+        -Dgallium-vdpau=true \
+        -Dgallium-xa=true \
+        -Dgallium-nine=true \
+        -Dvulkan-drivers=amd,intel \
+        -Dshader-cache=true \
+        -Dgbm=true \
+        -Degl=true \
+        -Dglvnd=true \
+        -Dllvm=true \
+        -Dosmesa=gallium
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
+
+    # Add missing symlink
+    ln -s libGLX_mesa.so.0 $installdir/%libdir%/libGLX_indirect.so.0
