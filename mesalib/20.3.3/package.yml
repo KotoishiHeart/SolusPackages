@@ -76,12 +76,13 @@ setup      : |
           export EXTRA_ARGS=""
     fi
     %meson_configure $EXTRA_ARGS \
-        -Dplatforms=x11,wayland \
-        -Dgallium-drivers=iris,nouveau,r300,r600,radeonsi,svga,swrast,virgl \
+        -Dplatforms=auto \
+        -Dgallium-drivers=auto \
         -Dgallium-vdpau=true \
         -Dgallium-xa=true \
         -Dgallium-nine=true \
-        -Dvulkan-drivers=amd,intel \
+        -Ddri-drivers=auto \
+        -Dvulkan-drivers=auto \
         -Dshader-cache=true \
         -Dgbm=true \
         -Degl=true \
