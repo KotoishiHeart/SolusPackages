@@ -8,7 +8,7 @@ https://github.com/opencv/opencv/wiki/ChangeLog#version451
 ### Download
 
 #### YAML
-[package.yml](https://raw.githubusercontent.com/KotoishiHeart/SolusPackages/main/opencv/4.5.0/package.yml)
+[package.yml](https://raw.githubusercontent.com/KotoishiHeart/SolusPackages/main/opencv4/4.5.0/package.yml)
 
 #### XML
 Under Construction
@@ -24,7 +24,7 @@ https://github.com/opencv/opencv/wiki/ChangeLog#version450
 ### Download
 
 #### YAML
-[package.yml](https://raw.githubusercontent.com/KotoishiHeart/SolusPackages/main/opencv/4.5.1/package.yml)
+[package.yml](https://raw.githubusercontent.com/KotoishiHeart/SolusPackages/main/opencv4/4.5.1/package.yml)
 
 #### XML
 Under Construction
