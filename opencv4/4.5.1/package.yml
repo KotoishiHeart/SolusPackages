@@ -2,7 +2,7 @@ name       : opencv4
 version    : 4.5.1
 release    : 2
 source     :
-    - https://github.com/opencv/opencv/archive/4.5.1.tar.gz : dde4bf8d6639a5d3fe34d5515eab4a15669ded609a1d622350c7ff20dace1907
+    - https://github.com/opencv/opencv/archive/4.5.1.tar.gz : e27fe5b168918ab60d58d7ace2bd82dd14a4d0bd1d3ae182952c2113f5637513
     - https://raw.githubusercontent.com/opencv/opencv_3rdparty/ippicv/master_20191018/ippicv/ippicv_2020_lnx_intel64_20191018_general.tgz : 08627fa5660d52d59309a572dd7db5b9c8aea234cfa5aee0942a1dd903554246
 license    :
     - BSD-3-Clause
