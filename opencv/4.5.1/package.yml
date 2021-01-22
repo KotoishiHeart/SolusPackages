@@ -1,0 +1,62 @@
+name       : opencv4
+version    : 4.5.1
+release    : 2
+source     :
+    - https://github.com/opencv/opencv/archive/4.5.1.tar.gz : dde4bf8d6639a5d3fe34d5515eab4a15669ded609a1d622350c7ff20dace1907
+    - https://raw.githubusercontent.com/opencv/opencv_3rdparty/ippicv/master_20191018/ippicv/ippicv_2020_lnx_intel64_20191018_general.tgz : 08627fa5660d52d59309a572dd7db5b9c8aea234cfa5aee0942a1dd903554246
+license    :
+    - BSD-3-Clause
+    - EULA # ippicv
+component  : programming.library
+summary    : OpenCV is an open source computer vision and machine learning software library
+description: |
+    OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library.
+builddeps  :
+    - pkgconfig(eigen3)
+    - pkgconfig(glu)
+    - pkgconfig(gstreamer-plugins-base-1.0)
+    - pkgconfig(gtkglext-1.0)
+    - pkgconfig(ice)
+    - pkgconfig(jasper)
+    - pkgconfig(libavcodec)
+    - pkgconfig(libdc1394-2)
+    - pkgconfig(libtiff-4)
+    - pkgconfig(libturbojpeg)
+    - pkgconfig(libwebp)
+    - pkgconfig(OpenEXR)
+    - pkgconfig(python3)
+    - pkgconfig(sm)
+    - pkgconfig(xmu)
+    - intel-tbb-devel
+    - openjpeg-devel
+    - numpy
+setup      : |
+    #Use ippicv from $sources
+    IPPNAME=$(basename $sources/ippicv_*_lnx_*.tgz)
+    MD5SUM=$(md5sum $sources/$IPPNAME | cut -d" " -f1)
+    mkdir -p .cache/ippicv
+    cp $sources/$IPPNAME .cache/ippicv/$MD5SUM-$IPPNAME
+    
+    mkdir build && cd build
+    %cmake \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_PERF_TESTS=OFF \
+        -DBUILD_TESTS=OFF \
+        -DBUILD_DOCS=OFF \
+        -DBUILD_WITH_DEBUG_INFO=OFF \
+        -DENABLE_CXX11=ON \
+        -DENABLE_SOLUTION_FOLDERS=ON \
+        -DENABLE_PRECOMPILED_HEADERS=OFF \
+        -DOPENCV_ENABLE_NONFREE=ON \
+        -DOPENCV_FORCE_PYTHON_LIBS=ON \
+        -DWITH_GPHOTO2=OFF \
+        -DWITH_IPP=ON \
+        -DWITH_OPENGL=ON \
+        -DWITH_OPENCL=ON \
+        -DWITH_TBB=ON \
+        -DWITH_QT=OFF \
+           ..
+build      : |
+    %make -C build
+install    : |
+    %make_install -C build
