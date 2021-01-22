@@ -11,6 +11,9 @@ component  : programming.library
 summary    : OpenCV is an open source computer vision and machine learning software library
 description: |
     OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library.
+patterns   :
+    - devel :
+        - /usr/lib64/opencv4/libopencv*.so*
 builddeps  :
     - pkgconfig(eigen3)
     - pkgconfig(glu)
