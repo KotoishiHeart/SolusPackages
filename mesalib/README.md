@@ -8,14 +8,14 @@ https://docs.mesa3d.org/relnotes/20.3.3.html
 ### Download
 
 #### YAML
-[package.yml](https://download.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/package.yml)
+[package.yml](https://solus.repo.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/package.yml)
 
 #### XML
-[pspec_x86_64.xml](https://download.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/pspec_x86_64.xml)
+[pspec_x86_64.xml](https://solus.repo.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/pspec_x86_64.xml)
 
 #### Packages
-[mesalib-20.3.3-153-1-x86_64.eopkg](https://download.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/mesalib-20.3.3-153-1-x86_64.eopkg)  
-[mesalib-devel-20.3.3-153-1-x86_64.eopkg](https://download.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/mesalib-devel-20.3.3-153-1-x86_64.eopkg)
+[mesalib-20.3.3-153-1-x86_64.eopkg](https://solus.repo.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/mesalib-20.3.3-153-1-x86_64.eopkg)  
+[mesalib-devel-20.3.3-153-1-x86_64.eopkg](https://solus.repo.danceylove.net/github/KotoishiHeart/SolusPackages/mesalib/20.3.3/mesalib-devel-20.3.3-153-1-x86_64.eopkg)
 
 ## Version 20.3.2 (2020-12-30) - Deprecated
 
