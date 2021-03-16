@@ -1,8 +1,8 @@
 name       : mesalib
-version    : 20.3.3
+version    : 21.0.0
 release    : 150
 source     :
-    - https://mesa.freedesktop.org/archive/mesa-20.3.3.tar.xz : f74e212d4838e982a10c203ffa998817d1855c5cf448ae87b58f96edea61d156
+    - https://mesa.freedesktop.org/archive/mesa-21.0.0.tar.xz : e6204e98e6a8d77cf9dc5d34f99dd8e3ef7144f3601c808ca0dd26ba522e0d84
 homepage   : http://mesa3d.org/
 license    :
     - BSL-1.0
@@ -87,8 +87,7 @@ setup      : |
         -Dgbm=true \
         -Degl=true \
         -Dglvnd=true \
-        -Dllvm=true \
-        -Dosmesa=gallium
+        -Dllvm=true
 build      : |
     %ninja_build
 install    : |

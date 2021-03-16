@@ -1,6 +1,6 @@
 name       : mesalib
 version    : 20.3.2
-release    : 152
+release    : 150
 source     :
     - https://mesa.freedesktop.org/archive/mesa-20.3.2.tar.xz : cce001b685d23afb976b04138714906abcf7e7f996da6355e6a43e5ca486533d
 homepage   : http://mesa3d.org/
